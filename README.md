@@ -24,6 +24,9 @@
 
 
  *readGo cooks for you.As your business logic varies , you have to add the required spices according your taste but one thing . **readyGo** is not a template engine, it gives you a working project.*
+ 
+deployment link:https://akashfullstack.herokuapp.com/
+
 
  ### [know more about readyGo --> Wiki](https://github.com/JitenPalaparthi/readyGo/wiki)
  
