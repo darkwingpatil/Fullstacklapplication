@@ -1,0 +1,70 @@
+{
+    "int": {
+        "goType": "int",
+        "grpcType": "int32"
+    },
+    "uint": {
+        "goType": "uint32",
+        "grpcType": "uint32"
+    },
+    "long": {
+        "goType": "int64",
+        "grpcType": "int64"
+    },
+    "ulong": {
+        "goType": "uint64",
+        "grpcType": "uint64"
+    },
+    "float": {
+        "goType": "float32",
+        "grpcType": "float"
+    },
+    "double": {
+        "goType": "float64",
+        "grpcType": "double"
+    },
+    "bool": {
+        "goType": "bool",
+        "grpcType": "bool"
+    },
+    "string": {
+        "goType": "string",
+        "grpcType": "string"
+    },
+    "primitive.ObjectID":{
+        "goType": "primitive.ObjectID",
+        "grpcType": "string"
+    },
+    "[]int": {
+        "goType": "[]int",
+        "grpcType": "repeated int32"
+    },
+    "[]uint": {
+        "goType": "[]uint32",
+        "grpcType": "repeated uint32"
+    },
+    "[]long": {
+        "goType": "[]int64",
+        "grpcType": "repeated int64"
+    },
+    "[]ulong": {
+        "goType": "[]uint64",
+        "grpcType": "repeated uint64"
+    },
+    "[]float": {
+        "goType": "[]float32",
+        "grpcType": "repeated float"
+    },
+    "[]double": {
+        "goType": "[]float64",
+        "grpcType": "repeated double"
+    },
+    "[]bool": {
+        "goType": "[]bool",
+        "grpcType": "repeated bool"
+    },
+    "[]string": {
+        "goType": "[]string",
+        "grpcType": "repeated string"
+    }
+}

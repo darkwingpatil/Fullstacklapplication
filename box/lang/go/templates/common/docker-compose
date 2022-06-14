@@ -1,0 +1,66 @@
+version: "3"
+services:
+  app:
+    container_name: {{$.config.Project}}_service
+    restart: always
+    build: ./
+    ports:
+     - "{{$.config.APISpec.Port}}:{{$.config.APISpec.Port}}"
+    links:
+       - db
+    {{- if eq $.config.MessagingSpec.Name "nats" }}    
+       - mb
+    {{- end}}
+    networks: 
+      - backend
+  {{- if eq $.config.DatabaseSpec.Name "mongo" }}
+  db:
+    container_name: {{$.config.DatabaseSpec.Name}}_db
+    image: mongo
+    ports:
+     - "27017:27017"
+    volumes:
+     - "./data/db:/data/db"
+    networks: 
+      - backend
+  {{- end}}
+
+  {{- if eq $.config.DatabaseSpec.Name "mysql" }}
+  db:
+    container_name: {{$.config.DatabaseSpec.Name}}_db
+    image: mysql
+    ports:
+     - "3306:3306"
+    volumes:
+     - db_data:/var/lib/mysql
+    restart: always
+    networks: 
+      - backend
+  {{- end}}
+  {{- if eq $.config.DatabaseSpec.Name "postgres" }}
+  db:
+    container_name: {{$.config.DatabaseSpec.Name}}_db
+    image: postgres
+    ports:
+     - "5432:5432"
+    volumes:
+     - ./tmp/db:/var/lib/postgresql/data
+    restart: always
+    networks: 
+      - backend
+  {{- end}}
+  {{- if eq $.config.MessagingSpec.Name "nats" }}
+  mb:
+    container_name: nats_messaging
+    image: nats
+    ports:
+      - "4222:4222"
+      - "6222:6222"
+      - "8222:8222"
+    networks:
+      - backend
+  {{- end}}
+
+networks:
+  backend:
+    driver: bridge
